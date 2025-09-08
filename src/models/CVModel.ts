@@ -2,26 +2,18 @@ import mongoose from "mongoose";
 
 const cvSchema = new mongoose.Schema(
   {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // Reference to your User model
-      required: true,
-    },
-
-    // Personal Information
     personal: {
       fullName: { type: String, required: true },
-      title: { type: String }, // e.g., "Software Engineer"
+      title: { type: String }, 
       email: { type: String },
       phone: { type: String },
       address: { type: String },
       website: { type: String },
       linkedin: { type: String },
       github: { type: String },
-      summary: { type: String }, // short intro/bio
+      summary: { type: String },
     },
 
-    // Education
     education: [
       {
         school: { type: String, required: true },
@@ -34,7 +26,6 @@ const cvSchema = new mongoose.Schema(
       },
     ],
 
-    // Work Experience
     experience: [
       {
         company: { type: String, required: true },
@@ -42,19 +33,17 @@ const cvSchema = new mongoose.Schema(
         location: { type: String },
         startDate: { type: Date },
         endDate: { type: Date },
-        description: { type: String }, // responsibilities, achievements
+        description: { type: String },
       },
     ],
 
-    // Skills
     skills: [
       {
         name: { type: String, required: true },
-        level: { type: String, enum: ["Beginner", "Intermediate", "Advanced", "Expert"] }, // optional
+        level: { type: String, enum: ["Beginner", "Intermediate", "Advanced", "Expert"] }, 
       },
     ],
 
-    // Projects
     projects: [
       {
         name: { type: String, required: true },
@@ -64,7 +53,6 @@ const cvSchema = new mongoose.Schema(
       },
     ],
 
-    // Certifications
     certifications: [
       {
         name: { type: String, required: true },
@@ -75,7 +63,6 @@ const cvSchema = new mongoose.Schema(
       },
     ],
 
-    // Languages
     languages: [
       {
         name: { type: String },
@@ -86,15 +73,13 @@ const cvSchema = new mongoose.Schema(
       },
     ],
 
-    // Extra Sections (for flexibility, like hobbies, achievements, etc.)
     customSections: [
       {
         title: { type: String },
-        items: [{ type: String }], // simple list
+        items: [{ type: String }], 
       },
     ],
 
-    // CV Settings (template, theme, etc.)
     settings: {
       template: { type: String, default: "default" },
       theme: { type: String, default: "light" },
