@@ -8,10 +8,15 @@ const cvSchema = new mongoose.Schema(
       email: { type: String },
       phone: { type: String },
       address: { type: String },
-      website: { type: String },
-      linkedin: { type: String },
-      github: { type: String },
       summary: { type: String },
+    },
+
+    social: {
+        facebookLink: {type: String},
+        instagramLink: {type: String},
+        linkedinLink: {type: String},
+        githubLink: {type: String},
+        website: { type: String },
     },
 
     education: [
