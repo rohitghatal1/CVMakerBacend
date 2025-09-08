@@ -16,6 +16,7 @@ export const registerUser = async (req: any, res: any) => {
     }
 
     const existingUser = await User.findOne({ email });
+
     if (existingUser) {
       return res.status(409).json({ status: "failed", message: "User already exists" });
     }
@@ -44,6 +45,7 @@ export const registerUser = async (req: any, res: any) => {
         token,
       },
     });
+
   } catch (err: any) {
     console.error("Register error:", err);
     res.status(500).json({ status: "failed", message: "Server error" });
@@ -82,6 +84,7 @@ export const loginUser = async (req: any, res: any) => {
         token,
       },
     });
+    
   } catch (err: any) {
     console.error("Login error:", err);
     res.status(500).json({ status: "failed", message: "Server error" });
